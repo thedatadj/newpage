@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+  </head>
+  <body>
+	<!--This draws the canvas on the webpage -->
+    <canvas id="mycanvas"></canvas> 
+  </body>
+ 
+  <!-- Include the processing.js library -->
+  <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+  <script>
+  var programCode = function(processingInstance) {
+    with (processingInstance) {
+      size(400, 400); 
+      frameRate(30);
+        
+      // Paste code from Khan Academy here:
+      
+var bodyX = 200;
+var bodyY = 220;
+var bodyW = 118;
+var faceW = bodyW/2;
+var p = 0;
+
+draw = function() {
+    background(196, 244, 245);
+    
+    
+    //Fly
+    fill(242, 239, 155);
+    ellipse(mouseX - 10, mouseY - 18, 15, 29);
+    ellipse(mouseX + 10, mouseY - 18, 15, 29);
+    fill(163, 146, 146);
+    ellipse(mouseX, mouseY, 25, 25); //body
+    fill(255, 255, 255);
+    ellipse(mouseX + 5, mouseY - 10, 15,15); //left eye
+    fill(31, 4, 4);
+    ellipse(mouseX + 5, mouseY - 10, 5,5);
+    fill(255, 255, 255);
+    ellipse(mouseX - 5, mouseY - 10, 15,15); //right eye
+    fill(31, 4, 4);
+    ellipse(mouseX - 5, mouseY - 10, 5,5);
+    //Legs
+    line(mouseX - 6, mouseY + 3, mouseX - 15, mouseY + 16);
+    line(mouseX - 5, mouseY + 6, mouseX - 12, mouseY + 20);
+    line(mouseX - 2, mouseY + 9, mouseX - 7, mouseY + 22);
+    line(mouseX + 6, mouseY + 3, mouseX + 15, mouseY + 16);
+    line(mouseX + 5, mouseY + 6, mouseX + 12, mouseY + 20);
+    line(mouseX + 2, mouseY + 9, mouseX + 7, mouseY + 22);
+    
+    //Frog
+    fill(30, 209, 71);
+    //frog 1
+    ellipse(200, 278, 100, 60); //frog face
+    fill(232, 42, 42);
+    ellipse(200, 256, 52, 15); //frog mouth
+    
+    //tongue
+    if ( (floor(millis() / 1000) % 2)) {
+        noStroke();
+    }
+    else {
+        strokeWeight(10);
+        stroke(222, 16, 16);
+    }
+    line(200, 256, mouseX, mouseY);
+    stroke(3, 3, 3);
+    strokeWeight(1);
+    
+    
+    
+    
+    
+    // frog left eye
+    fill(255, 255, 255);
+    ellipse(186, 273, 22, 14);
+    fill(5, 5, 5);
+    ellipse(mouseX/30 + 180, mouseY/130 + 270, 10, 10); 
+    
+    // frog right eye
+    fill(255, 255, 255);
+    ellipse(223, 273, 22, 15);
+    fill(0, 0, 0);
+    ellipse(mouseX/30 + 218, mouseY/130 + 270, 10, 10); 
+    fill(30, 209, 71);
+    ellipse(200, 350, 200, 100); //frog body
+ 
+    
+};
+
+
+      // End here
+    }};
+
+  // Get the canvas that ProcessingJS will use
+  var canvas = document.getElementById("mycanvas"); 
+  // Pass the function to ProcessingJS constructor
+  var processingInstance = new Processing(canvas, programCode); 
+  </script>
+</html>
