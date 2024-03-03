@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Processing.JS inside Webpages: Template</title> 
+  </head>
+  <body>
+	<!--This draws the canvas on the webpage -->
+    <canvas id="mycanvas"></canvas> 
+  </body>
+ 
+  <!-- Include the processing.js library -->
+  <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+  <script>
+  var programCode = function(processingInstance) {
+    with (processingInstance) {
+      size(400, 400); 
+      frameRate(30);
+        
+      // Paste code from Khan Academy here:
+      
+var xPos = 200;
+var yPos = 200;
+var x = 50;
+var y = 50;
+var t = 0.04;
+
+draw = function() {
+    background(9, 27, 145);
+    var n = noise(t);
+    t += 0.002;
+    fill(255, 255, 255);
+    ellipse(200, 200, 93, 155);
+    fill(0, 0, 0);
+    rect(154, 186, 91, 28);
+    fill(255, 0, 0);
+    ellipse(202*n + 100, 200-n, 25, 25);
+    fill(255, 242, 0);
+    ellipse(xPos - 3*cos(radians(x)), yPos + 4*cos(radians(y)), 30, 30);
+    ellipse(xPos + 5*sin(radians(y)), yPos + 7*sin(radians(x)), 30, 30);
+    xPos = 150*cos(radians(x)) + 200;
+    yPos = 150*cos(radians(y)) + 200;
+    x += 1;
+    y += 0.5;
+    
+};
+      
+    }};
+
+  // Get the canvas that ProcessingJS will use
+  var canvas = document.getElementById("mycanvas"); 
+  // Pass the function to ProcessingJS constructor
+  var processingInstance = new Processing(canvas, programCode); 
+  </script>
+</html>
